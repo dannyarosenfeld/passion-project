@@ -3,7 +3,7 @@ class Log < ActiveRecord::Base
   has_many :likes, as: :likable
   belongs_to :user
   has_many :comments
-
+  has_many :workouts
   def points
     likes.sum(:value)
   end

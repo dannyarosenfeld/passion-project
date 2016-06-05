@@ -1,0 +1,14 @@
+<h1>Your Feed</h1>
+<h2>Check out logs of people you're following</h2>
+
+
+<% @current_user.followees.each do |followee| %>
+  <%followee.logs.each do |log|%>
+      <img src="<%= log.user.image %>" alt="user image">
+  <p> <%= log.likes.count %> people favorited this workout log</p>
+   <a href="/logs/<%=log.id %>"><%= log.title %></a>
+  <p> <%= log.duration %> </p>
+  <% end %>
+<% end %>
+
+
