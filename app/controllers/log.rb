@@ -6,6 +6,7 @@ end
 post '/logs/:id/like' do
   id = params[:id].to_i
   log = Log.find(params[:id])
+  #if log.likes
   log.likes.create(value: 1)
   if request.xhr?
     {log_id: id, likes: log.points}.to_json
