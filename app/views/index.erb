@@ -1,0 +1,13 @@
+ <% if @user %>
+     <%= @user.username  %>
+   <% end %>
+
+
+<% @logs.sort { |a, b| b.likes.sum(:value) <=> a.likes.sum(:value) }.each do |log| %>
+
+
+  <img src="<%= log.user.image %>" alt="user image">
+  <p> <%= log.likes.count %></p>
+   <a href="/"><%= log.title %></a>
+  <p> <%= log.duration %> </p>
+<% end %>
