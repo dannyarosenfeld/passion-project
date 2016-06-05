@@ -1,0 +1,27 @@
+
+
+
+  <img src="<%= @log.user.image %>" alt="user image">
+  <p> <%= @log.likes.count %> people favorited this workout log</p>
+   <a href="/logs/<%=@log.id %>"><%= @log.title %></a>
+  <p> <%= @log.duration %> </p>
+  <% i = 0 %>
+  <%@log.workouts.each do |workout|  %>
+
+    <% i += 1 %>
+    <strong> <%=i%> </strong>
+
+
+    <strong> <%=workout.name%> </strong>
+    <strong>sets: <%=workout.sets%> </strong>
+    <strong>reps: <%=workout.reps%> </strong>
+    <strong> <%=workout.time_since_creation%> </strong>
+    </br>
+
+  <% end %>
+
+   <% @log.comments.each do |comment| %>
+    <p> <%= comment.user.username %> </p>
+    <p> <%= comment.content %></p> </br>
+
+   <% end %>

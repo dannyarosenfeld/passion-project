@@ -10,6 +10,7 @@
   <!--
     application.css is where you put your styles
   -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/application.css">
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -19,18 +20,23 @@
 </head>
 <body>
 
- <nav>
-  <ul>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+  <ul class="nav navbar-nav">
     <% if session[:user_id]  %>
       <li><a href="/">Home</a></li>
       <li><a href="/logout">Logout</a></li>
+      <li><a href="/">Group Up</a></li>
+      <li><a href="/">Most Favorited</a></li>
+      <li><a href="/">Newest</a></li>
     <% else  %>
       <li><a href="/">Home</a></li>
       <li><a href="/register">Register</a></li>
       <li><a href="/login">Login</a></li>
     <% end %>
   </ul>
-  </nav>
+  </div>
+</nav>
   <%= yield %>
 </body>
 </html>
