@@ -1,3 +1,36 @@
 body {
+  color: #FFFFFF;
+   background: #36465D;
   padding-top: 70px;
   padding-bottom: 70px; }
+
+.inline-block {
+
+  float: right;
+}
+
+.button {
+  border-radius: 5px;
+  border: 2px solid #56BC8A;
+  background: #86909E;
+
+}
+
+.followtext {
+  color: #5EBA8C;
+}
+
+#unfollow {
+  border: 2px solid #DC6E53;
+
+}
+
+
+
+img {
+  border-radius: 5px;
+}
+
+input {
+  margin-left: 90px;
+}

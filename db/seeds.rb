@@ -1,6 +1,6 @@
 i = 0
 20.times do (
-  avatars = ["https://www.govloop.com/wp-content/uploads/avatars/105863/b226a950b0005d6f346ad723642c6629-bpthumb.jpg",
+  avatars = ["http://kunmingrock.com/wp-content/uploads/funny-looking-white-guy2-150x150.jpg",
   "https://media.licdn.com/mpr/mpr/shrink_100_100/p/4/005/071/0bf/0d0bbbd.jpg",
   "https://s-media-cache-ak0.pinimg.com/236x/0e/a5/2a/0ea52a6e76028e9709ed32c23c4d22a7.jpg",
   "http://www.ces.clemson.edu/spilla/wp-content/uploads/2014/04/Web-profile3-150x150.jpg",
