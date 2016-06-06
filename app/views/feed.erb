@@ -77,16 +77,11 @@
         //var address = document.getElementById('address').value;
         var address = document.getElementsByClassName('paragraph');
 
-
-        for (var i in address){
-          console.log();
-          placeMarker(address[i].innerHTML, geocoder, resultsMap);
-        }
-
-
-    }
-   var placeMarker = function(address, geocoder, resultsMap){
-          geocoder.geocode({'address': address}, function(results, status) {
+        for (var i = 0; i <address.length; i ++){
+        //for (var i in address){
+          addresstext = address[i].innerHTML
+          //debugger;
+          geocoder.geocode({'address': addresstext}, function(results, status) {
           if (status === google.maps.GeocoderStatus.OK) {
             resultsMap.setCenter(results[0].geometry.location);
             var marker = new google.maps.Marker({
@@ -94,11 +89,15 @@
               position: results[0].geometry.location
 
             });
+            //debugger;
           } else {
             alert('Geocode was not successful for the following reason: ' + status);
           }
         });
       }
+    }
+
+
 // debugger;
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap"
