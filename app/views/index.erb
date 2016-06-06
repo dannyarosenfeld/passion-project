@@ -11,7 +11,7 @@
 
    <div class="row">
    <% logarray.each do |log| %>
-    <div class="col-md-4">
+    <div class="col-md-4 showlog">
       <img src="<%= log.user.image %>" alt="user image" width="150" height="150">
 
     <% if @user %>
@@ -40,8 +40,8 @@
       <img src="http://findicons.com/files/icons/2711/free_icons_for_windows8_metro/256/leg.png" alt="leg pic">
    <% end %>
 
-     <p><%= log.user.followers.count %> Followers</p>
-     <p> <%= log.likes.count %> Favorited this log </p>
+     <p><strong class="ftext"> <%= log.user.followers.count %> </strong> Followers</p>
+     <p><strong class="ftext"> <%= log.likes.count %> </strong> Favorited this log </p>
      <a href="/logs/<%=log.id %>"><%= log.title %></a>
      <p> Duration: <%= log.duration %> </p>
    </div>
