@@ -14,7 +14,11 @@
  end
 
  get '/login' do
-   erb :login
+    if request.xhr?
+    erb :'login', layout: false
+  else
+    erb :'login'
+  end
  end
 
  post '/login' do
@@ -28,8 +32,36 @@
  end
 
  get '/logout' do
-   session.delete(:user_id)
+   session.clear
    redirect '/'
  end
 
+post '/users' do
+   @user = User.find_by_username(params[:username])
+    @logs = Log.all
+    if @user.password == params[:password]
+      session[:user_id] = @user.id
+    else
+      redirect '/login'
+    end
+  if request.xhr?
+    welcome = "<p>Welcome, #{@user.username} </p>"
+    a_tag = "<li><a href='/'>Home</a></li>
+      <li><a href='/logout'>Logout</a></li>
+      <li><a href='/groupup'>Group Up</a></li>
+      <li><a href='/feed'>My Feed</a></li>
+      <li><a href='/'>Newest</a></li>"
 
+    follows = (erb :'_follows', layout: false)
+
+
+
+
+
+
+    content_type :json
+    { welcome: welcome, a_tag: a_tag, follows: follows }.to_json
+  else
+    redirect '/'
+  end
+end

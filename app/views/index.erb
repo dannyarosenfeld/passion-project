@@ -1,15 +1,19 @@
  <% if @user %>
  <%= @user.username  %>
  <% end %>
+<div class='welcome'></div>
+
 
  <h1>Top Exercise Logs</h1>
  <h2>Sorted by logs with most favorites</h2>
-
+ <div class="ajaxfollow"></div>
  <% @logs.sort { |a, b| b.likes.sum(:value) <=> a.likes.sum(:value) }.each_slice(3) do |logarray| %>
+
    <div class="row">
    <% logarray.each do |log| %>
     <div class="col-md-4">
       <img src="<%= log.user.image %>" alt="user image" width="150" height="150">
+
     <% if @user %>
      <form  method="post" action='/logs/<%= log.id %>/like'>
        <label for="like">Favorite</label>
@@ -27,8 +31,7 @@
        <p class="followtext"> You are currently following <%= log.user.username %> <p>
        <% else %>
         <form method="post" action='/logs/<%= log.id %>/follow'>
-       <input class="button" type="submit" value="Follow">
-     </form>
+       <input class="button" type="submit" value="Follow"> i</form>
      <% end %>
   <% end %>
 
