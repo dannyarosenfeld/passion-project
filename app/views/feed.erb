@@ -2,9 +2,12 @@
 <h2>Check out logs of people you're following</h2>
 
 
+  <div id="map"></div>
+
 <% @current_user.followees.each do |followee| %>
   <%followee.logs.each do |log|%>
       <img src="<%= log.user.image %>" alt="user image">
+      <p class="paragraph"> <%= log.location %> </p>
   <p> <%= log.likes.count %> people favorited this workout log</p>
    <a href="/logs/<%=log.id %>"><%= log.title %></a>
   <p> <%= log.duration %> </p>
@@ -12,3 +15,91 @@
 <% end %>
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="viewport" content="initial-scale=1.0">
+
+<style>
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  #map {
+    height: 70%;
+    width:50%;
+    float: right;
+  }
+ #floating-panel {
+  color: black;
+  margin-top: 100px;
+        position: absolute;
+        top: 10px;
+        left: 25%;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+        text-align: center;
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
+      }
+    </style>
+
+
+    <script>
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: {lat: -34.397, lng: 150.644}
+        });
+        var geocoder = new google.maps.Geocoder();
+
+        geocodeAddress(geocoder, map);
+      }
+
+      function geocodeAddress(geocoder, resultsMap) {
+        //var address = document.getElementById('address').value;
+        var address = document.getElementsByClassName('paragraph');
+
+
+        for (var i in address){
+          console.log();
+          placeMarker(address[i].innerHTML, geocoder, resultsMap);
+        }
+
+
+    }
+   var placeMarker = function(address, geocoder, resultsMap){
+          geocoder.geocode({'address': address}, function(results, status) {
+          if (status === google.maps.GeocoderStatus.OK) {
+            resultsMap.setCenter(results[0].geometry.location);
+            var marker = new google.maps.Marker({
+              map: resultsMap,
+              position: results[0].geometry.location
+
+            });
+          } else {
+            alert('Geocode was not successful for the following reason: ' + status);
+          }
+        });
+      }
+// debugger;
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap"
+async defer></script>
