@@ -14,23 +14,6 @@
   <% end %>
 <% end %>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <meta name="viewport" content="initial-scale=1.0">
 
 <style>
@@ -40,9 +23,11 @@
     padding: 0;
   }
   #map {
-    height: 70%;
-    width:50%;
+    height: 60%;
+    width:70%;
     float: right;
+    border-radius: 10px;
+    border: 3.4px solid #47B28C;
   }
  #floating-panel {
   color: black;
@@ -60,45 +45,7 @@
         padding-left: 10px;
       }
     </style>
+  <script src="js/feedmarkers.js"></script>
 
-
-    <script>
-      function initMap() {
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 4,
-          center: {lat: -34.397, lng: 150.644}
-        });
-        var geocoder = new google.maps.Geocoder();
-
-        geocodeAddress(geocoder, map);
-      }
-
-      function geocodeAddress(geocoder, resultsMap) {
-        //var address = document.getElementById('address').value;
-        var address = document.getElementsByClassName('paragraph');
-
-        for (var i = 0; i <address.length; i ++){
-        //for (var i in address){
-          addresstext = address[i].innerHTML
-          //debugger;
-          geocoder.geocode({'address': addresstext}, function(results, status) {
-          if (status === google.maps.GeocoderStatus.OK) {
-            resultsMap.setCenter(results[0].geometry.location);
-            var marker = new google.maps.Marker({
-              map: resultsMap,
-              position: results[0].geometry.location
-
-            });
-            //debugger;
-          } else {
-            alert('Geocode was not successful for the following reason: ' + status);
-          }
-        });
-      }
-    }
-
-
-// debugger;
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap"
+ <script src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap"
 async defer></script>

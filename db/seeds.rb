@@ -49,7 +49,7 @@ i = 0
    )
  end
 
-locationary = ["san francisco", "california", "berkeley"]
+locationary = ["san francisco", "california", "berkeley", "fremont", "richmond", "walnut creek", "daly city"]
 20.times do
   log = Log.create(title: Faker::Lorem.sentence(3), duration: "1 hour", user_id: rand(1..20), location: locationary.sample)
   like_count = rand(50)
@@ -63,7 +63,7 @@ end
 
 end
 
-20.times {com = Comment.create(content: Faker::Lorem.sentence(3), user_id: rand(1..20), log_id: rand(1..20) )
+20.times {com = Comment.create(content: Faker::Lorem.sentence(6), user_id: rand(1..20), log_id: rand(1..20) )
   like_count = rand(50)
   like_count.times do
     com.likes.create(value: 1, user_id: rand(1..20))
