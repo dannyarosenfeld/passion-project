@@ -49,7 +49,7 @@ i = 0
    )
  end
 
-locationary = ["san francisco", "california", "berkeley", "fremont", "richmond", "walnut creek", "daly city"]
+locationary = ["san francisco", "california", "berkeley", "fremont", "richmond california", "walnut creek", "daly city"]
 20.times do
   log = Log.create(title: Faker::Lorem.sentence(3), duration: "1 hour", user_id: rand(1..20), location: locationary.sample)
   like_count = rand(50)

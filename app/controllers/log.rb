@@ -9,6 +9,7 @@ post '/logs/:id/like' do
   #if log.likes
   log.likes.create(value: 1)
   if request.xhr?
+    content_type :json
     {log_id: id, likes: log.points}.to_json
   else
     redirect "/"

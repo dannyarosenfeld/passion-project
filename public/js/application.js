@@ -44,6 +44,32 @@ $(document).ready(function() {
 
 
 
+//asyncrounous voting
+
+  $(".ajaxfollow").on('click', ".vote-button", function(event) {
+  event.preventDefault();
+  var id = $(this).parent().attr('id');
+
+  $.ajax({
+    type: "POST",
+    url: "/logs/" + id + "/like",
+    data: id
+
+  }).done(function (something){
+    something
+
+   var pointSpan = $("#" + something.log_id).children(":last")
+   //var pointSpan = $("#" + something.id)
+
+    $(pointSpan).empty().append(something.likes);
+    $(pointSpan).css("background", "red");
+
+  });
+});
+
+
+
+
 
 
 
