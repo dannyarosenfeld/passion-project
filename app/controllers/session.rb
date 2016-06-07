@@ -22,7 +22,7 @@
  end
 
  post '/login' do
-   user = User.authenticate(params[:username], params[:password])
+   user = User.authenticate(params[:username], params[:password]) if User.find_by(username: params[:username])
    if user
      session[:user_id] = user.id
      redirect '/'
