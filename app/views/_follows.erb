@@ -1,0 +1,39 @@
+
+
+ <% @logs.sort { |a, b| b.likes.sum(:value) <=> a.likes.sum(:value) }.each_slice(3) do |logarray| %>
+   <div class="row">
+   <% logarray.each do |log| %>
+    <div class="col-md-4">
+      <img src="<%= log.user.image %>" alt="user image" width="150" height="150">
+
+    <% if @user %>
+       <form id="<%= log.id %>" method="post" action='/logs/<%= log.id%>/like'>
+         <label for="like">Favorite</label>
+         <button type="submit" name="submit_param" value="submit_value" class="fa fa-sort-desc vote-button upvote-button"></button>
+         <p id="ptag"> <%= log.likes.count %> Favorited this log </p>
+       </form>
+      <%if log.user.followers.include?(@user) %>
+         <form method="post" action='/logs/<%= log.id %>/unfollow'>
+            <input id="unfollow" class="button" type="submit" value="Unfollow">
+         </form>
+         <p class="followtext"> You are currently following <%= log.user.username %> <p>
+      <% else %>
+         <form method="post" action='/logs/<%= log.id %>/follow'>
+            <input class="button" type="submit" value="Follow">
+         </form>
+      <% end %>
+    <% end %>
+
+    <% if log.title == "Leg" %>
+      <img src="http://findicons.com/files/icons/2711/free_icons_for_windows8_metro/256/leg.png" alt="leg pic">
+    <% end %>
+
+     <p><%= log.user.followers.count %> Followers</p>
+
+     <a href="/logs/<%=log.id %>"><%= log.title %></a>
+     <p> Duration: <%= log.duration %> </p>
+  </div>
+  <% end %>
+ </div>
+ <% end %>
+

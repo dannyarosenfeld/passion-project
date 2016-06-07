@@ -1,7 +1,210 @@
-<form method='POST' action='/register'>
+<style>
+  body {
+  background: #F5F8FA;
+  color:grey;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+}
+
+main {
+  padding:1.3em 4em 1.3em 4em;
+  border-radius: 7px;
+  background: white;
+  display:block;
+  width:80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+nav {
+  font-family: 'Raleway', sans-serif;
+}
+
+ul {
+  margin-left:3em;
+}
+
+li {
+  color:#A0CAFB;
+  z-index:20;
+}
+
+#interest{
+    font-size: 1.4em;
+  }
+
+.lightblue {
+  background: #A0CAFB;
+}
+
+#ocean{
+  background: lightblue;
+}
+
+h1 {
+  z-index:10;
+  padding:.1em 1em .1em 1em;
+  color:#66757F;
+  margin-left: 2.6em;
+  letter-spacing:5px;
+  font-family: helvetica;
+}
+
+h2 {
+  font-family: 'Raleway', sans-serif;
+}
+
+h3 {
+  font-family: 'Raleway', sans-serif;
+}
+
+form {
+  background:url(/people-cycling.jpg);
+  height:600px;
+  background-repeat:no-repeat;
+  padding-top:120px;
+  padding-left:500px;
+  color:white;
+  font-size: 30px;
+  font-family: 'Raleway', sans-serif;
+}
+
+input {
+  /*padding:10px 10px 10px 40px;*/
+  border-radius: 4px;
+  margin-bottom: 5px;
+  display: block;
+  color: black;
+}
+
+button{
+  padding: 10px;
+  border-radius: 4px;
+}
+
+input[type="checkbox"] {
+  display: inline-block;
+}
+
+.check-buttons{
+  background: rgba(255, 255, 255, 0.8);
+  color: #A0CAFB;
+}
+
+a{
+  text-decoration:none;
+  margin-right: 40px;
+  color:white;
+  line-height: 2;
+  }
+
+  li {
+  display:inline-block;
+}
+
+p {
+  border-radius: 10px;
+  background: #F5F8FA;
+  font-family: 'Raleway', sans-serif;
+}
+
+table {
+  width: 90%;
+}
+
+a:link {
+  color: grey;
+}
+
+a:visited {
+  color: #A0CAFB;
+}
+
+a:hover {
+  color: blue;
+}
+
+
+  /* media queries down here */
+
+  @media screen and (max-width: 500px) {
+  li {
+    display:block;
+  }
+}
+
+  @media screen and (max-width: 900px) {
+  form {
+    padding-left:0;
+  }
+  label {
+    display:block;
+    text-align: center;
+  }
+  input {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  textarea {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    color:black;
+  }
+  button {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  strong{
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+
+</style>
+
+
+<!-- <form method='POST' action='/register'>
    <label for='username'>Username</label>
      <input type='text' name='username'></input><br>
    <label for='password'>Password</label>
      <input type='password' name='password'></input><br>
    <input type="submit"></input>
- </form>
+ </form> -->
+
+
+  <main>
+    <h2>Simple Workout Log to organize your daily workout and plan future workouts </h2>
+
+    <form method='POST' action='/register'>
+      <div class="check-buttons">
+        <label id="interest">I am interested in</label>
+        <br/>
+        <strong>Weight Lifting</strong> <input type="checkbox" name="agree">
+        <strong>Cardio</strong> <input type="checkbox" name="agree">
+        <strong>TRX</strong> <input type="checkbox" name="agree">
+      </div>
+
+      <div>
+        <label for='username'>Username</label>
+     <input type='text' name='username'></input>
+      </div>
+
+      <div>
+        <label>Password</label>
+        <input type="password" name="password">
+      </div>
+
+      <div>
+        <textarea name="image" cols="15" rows="2"> Image
+        </textarea>
+      </div>
+
+      <button type="submit">Sign up</button>
+    </form>
+
+    <p>© image copyright random people from google images</p>
+  </main>

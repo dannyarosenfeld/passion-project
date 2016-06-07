@@ -1,3 +1,79 @@
+
 body {
+  color: #FFFFFF;
+   background: #36465D;
   padding-top: 70px;
-  padding-bottom: 70px; }
+  padding-bottom: 70px;
+  font-family: Verdana;
+  max-width: 700px;
+  margin: 0 auto;
+   }
+
+  nav {
+  font-family: 'Raleway', sans-serif;
+}
+
+form input{
+  color: black;
+}
+.inline-block {
+
+  float: right;
+}
+
+.button {
+  border-radius: 5px;
+  border: 2px solid #56BC8A;
+  background: #86909E;
+
+}
+
+.followtext {
+  color: #5EBA8C;
+}
+
+#unfollow {
+  border: 2px solid #DC6E53;
+
+}
+
+
+
+img {
+  border-radius: 5px;
+}
+
+
+.login-form{
+
+  display: inline-block;
+  color: black;
+  background:#337AB7;
+  margin-top: -2%;
+  padding: 10px;
+  padding-top: 3%;
+   border-radius: 10px;
+}
+
+.login-form input {
+    display: inline-block;
+
+
+
+}
+.myinput {
+   display: inline-block;
+
+
+}
+
+
+.showlog {
+  margin-top: 20px;
+}
+
+.containerthing {
+  margin-top: 50px;
+  margin-left: 8%;
+
+}

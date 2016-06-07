@@ -13,8 +13,11 @@
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/application.css">
 
+
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
+
+
 
   <title></title>
 </head>
@@ -22,21 +25,27 @@
 
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container">
-  <ul class="nav navbar-nav">
-    <% if session[:user_id]  %>
+  <ul class="list nav navbar-nav">
+    <% if session[:user_id] %>
       <li><a href="/">Home</a></li>
       <li><a href="/logout">Logout</a></li>
-      <li><a href="/">Group Up</a></li>
+      <li><a href="/groupup">Group Up</a></li>
       <li><a href="/feed">My Feed</a></li>
       <li><a href="/">Newest</a></li>
     <% else  %>
       <li><a href="/">Home</a></li>
+        <img src="https://cdn2.iconfinder.com/data/icons/solidix-sports-circular/128/sports_equipment-06-128.png" alt="weights" width="60" height="60">
       <li><a href="/register">Register</a></li>
-      <li><a href="/login">Login</a></li>
+      <li><a class="login" href="/login">Login</a></li>
+
     <% end %>
   </ul>
   </div>
 </nav>
+   <div class="login-or-register-form">
+  </div>
+
+
   <%= yield %>
 </body>
 </html>

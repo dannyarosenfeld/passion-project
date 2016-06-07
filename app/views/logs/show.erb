@@ -1,11 +1,21 @@
+  <link rel="stylesheet" href="/../css/application.css">
+
+ <div id="map"></div>
+<!-- <div class="containerthing"> -->
+<div class="containerthing">
+    <img src="<%= @log.user.image %>" alt="user image" width="150" height="150">
+    <p> <%= @log.likes.count %> people favorited this workout log</p>
 
 
 
-  <img src="<%= @log.user.image %>" alt="user image">
-  <p> <%= @log.likes.count %> people favorited this workout log</p>
-   <a href="/logs/<%=@log.id %>"><%= @log.title %></a>
-  <p> <%= @log.duration %> </p>
-  <% i = 0 %>
+    <a href="/logs/<%=@log.id %>"><%= @log.title %></a>
+    <p> <%= @log.duration %> </p>
+    <p id="paragraph"> <%= @log.location %> </p>
+
+
+
+
+      <% i = 0 %>
   <%@log.workouts.each do |workout|  %>
 
     <% i += 1 %>
@@ -20,8 +30,75 @@
 
   <% end %>
 
+  <p> San francisco</p>
+  <!--
+    <div id="floating-panel">
+      <input id="address" type="textbox" value="Sydney, NSW">
+      <input id="submit" type="button" value="Geocode">
+    </div> -->
+
+
    <% @log.comments.each do |comment| %>
     <p> <%= comment.user.username %> </p>
     <p> <%= comment.content %></p> </br>
 
    <% end %>
+
+  </div>
+
+
+
+
+</div>
+
+
+
+</div
+
+
+
+
+
+
+
+
+
+
+
+<meta name="viewport" content="initial-scale=1.0">
+
+<style>
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  #map {
+      height: 80%;
+    width:70%;
+    float: right;
+    border-radius: 10px;
+    border: 3.4px solid #47B28C;
+    left: 80%;
+    top: 3%;
+  }
+ #floating-panel {
+  color: black;
+  margin-top: 100px;
+        position: absolute;
+        top: 10px;
+        left: 25%;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+        text-align: center;
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
+      }
+    </style>
+
+<script src="../js/showmarker.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap"
+async defer></script>
