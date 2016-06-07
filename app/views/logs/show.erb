@@ -1,12 +1,21 @@
+  <link rel="stylesheet" href="/../css/application.css">
+
+ <div id="map"></div>
+<!-- <div class="containerthing"> -->
+<div class="containerthing">
+    <img src="<%= @log.user.image %>" alt="user image" width="150" height="150">
+    <p> <%= @log.likes.count %> people favorited this workout log</p>
 
 
 
-  <img src="<%= @log.user.image %>" alt="user image">
-  <p> <%= @log.likes.count %> people favorited this workout log</p>
-   <a href="/logs/<%=@log.id %>"><%= @log.title %></a>
-  <p> <%= @log.duration %> </p>
-  <p id="paragraph"> <%= @log.location %> </p>
-  <% i = 0 %> <div id="map"></div>
+    <a href="/logs/<%=@log.id %>"><%= @log.title %></a>
+    <p> <%= @log.duration %> </p>
+    <p id="paragraph"> <%= @log.location %> </p>
+
+
+
+
+      <% i = 0 %>
   <%@log.workouts.each do |workout|  %>
 
     <% i += 1 %>
@@ -35,7 +44,16 @@
 
    <% end %>
 
+  </div>
 
+
+
+
+</div>
+
+
+
+</div
 
 
 
@@ -56,9 +74,13 @@
     padding: 0;
   }
   #map {
-    height: 70%;
-    width:50%;
+      height: 80%;
+    width:70%;
     float: right;
+    border-radius: 10px;
+    border: 3.4px solid #47B28C;
+    left: 80%;
+    top: 3%;
   }
  #floating-panel {
   color: black;

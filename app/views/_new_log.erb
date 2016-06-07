@@ -1,0 +1,9 @@
+  <div id="log<%=@log.id%>">
+   <img src="<%= @log.user.image %>" alt="user image" width="150" height="150">
+      <h3><a href="#"><%= @log.location %></a></h3>
+    </div>
+
+  <p><strong class="ftext"> <%= @log.user.followers.count %> </strong> Followers</p>
+     <p><strong class="ftext"> <%= @log.likes.count %> </strong> Favorited this log </p>
+     <a href="/logs/<%=@log.id %>"><%= @log.title %></a>
+     <p> Duration: <%= @log.duration %> </p>

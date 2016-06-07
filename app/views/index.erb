@@ -3,10 +3,13 @@
  <% end %>
 <div class='welcome'></div>
 
-
+<h3><a id="new-log" href="#">Create a new log</a></h3>
+<div id="log-form-div"></div>
  <h1>Top Exercise Logs</h1>
  <h2>Sorted by logs with most favorites</h2>
  <div class="ajaxfollow"></div>
+
+<div id="loglist">
  <% @logs.sort { |a, b| b.likes.sum(:value) <=> a.likes.sum(:value) }.each_slice(3) do |logarray| %>
 
    <div class="row">
@@ -48,3 +51,4 @@
    <% end %>
  </div>
  <% end %>
+</div>

@@ -5,7 +5,7 @@
 
  post '/register' do
 
-     user = User.new(username: params[:username])
+     user = User.new(username: params[:username], image: params[:image])
      user.password = params[:password]
      user.save
      session[:user_id] = user.id

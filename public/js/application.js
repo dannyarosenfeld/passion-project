@@ -44,7 +44,7 @@ $(document).ready(function() {
 
 
 
-//asyncrounous voting
+//asyncrounous liking for follows partial
 
   $(".ajaxfollow").on('click', ".vote-button", function(event) {
   event.preventDefault();
@@ -61,12 +61,47 @@ $(document).ready(function() {
    var pointSpan = $("#" + something.log_id).children(":last")
    //var pointSpan = $("#" + something.id)
 
-    $(pointSpan).empty().append(something.likes);
-    $(pointSpan).css("background", "red");
-
+    $(pointSpan).empty().append("<p id='likecolor'>" + something.likes + "</p>" + " " + "Favorited this log");
+    $("#likecolor").css("color", "#43A78C");
+    $("#likecolor").css("float", "left");
   });
 });
 
+
+//show create log form
+
+$("body").on('click',"#new-log", function(event) {
+  event.preventDefault();
+
+  $.ajax({
+    type: "get",
+    url: "/logs/new"
+
+  }).done(function (data){
+
+    $("#log-form-div").append(data);
+  });
+});
+
+
+//submit create log form
+
+$("#log-form-div").on('submit',"#log-form", function(event) {
+
+  event.preventDefault();
+  var inputs = $(this).serialize();
+
+  $.ajax({
+    type: "post",
+    url: "/logs",
+    data: inputs
+
+  }).done(function (data){
+
+    $("#loglist").append(data);
+    $("#log-form").hide();
+  });
+});
 
 
 

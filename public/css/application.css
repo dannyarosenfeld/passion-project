@@ -1,3 +1,4 @@
+
 body {
   color: #FFFFFF;
    background: #36465D;
@@ -8,6 +9,13 @@ body {
   margin: 0 auto;
    }
 
+  nav {
+  font-family: 'Raleway', sans-serif;
+}
+
+form input{
+  color: black;
+}
 .inline-block {
 
   float: right;
@@ -64,7 +72,8 @@ img {
   margin-top: 20px;
 }
 
-.ftext {
-
+.containerthing {
+  margin-top: 50px;
+  margin-left: 8%;
 
 }
