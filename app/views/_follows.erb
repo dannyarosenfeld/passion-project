@@ -1,4 +1,4 @@
-
+<p>this is the partial</p>
 
  <% @logs.sort { |a, b| b.likes.sum(:value) <=> a.likes.sum(:value) }.each_slice(3) do |logarray| %>
    <div class="row">
@@ -18,9 +18,11 @@
          </form>
          <p class="followtext"> You are currently following <%= log.user.username %> <p>
       <% else %>
-         <form method="post" action='/logs/<%= log.id %>/follow'>
+        <div class="id">
+         <form class="followbut" method="post" action='/logs/<%= log.id %>/follow'>
             <input class="button" type="submit" value="Follow">
          </form>
+         </div>
       <% end %>
     <% end %>
 
