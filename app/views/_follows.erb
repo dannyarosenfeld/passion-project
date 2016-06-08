@@ -18,7 +18,7 @@
          </form>
          <p class="followtext"> You are currently following <%= log.user.username %> <p>
       <% else %>
-        <div class="id">
+        <div id="follow<%= log.id %>">
          <form class="followbut" method="post" action='/logs/<%= log.id %>/follow'>
             <input class="button" type="submit" value="Follow">
          </form>

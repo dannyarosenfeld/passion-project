@@ -21,16 +21,25 @@ post '/logs/:id/like' do
 end
 
 post '/logs/:id/follow' do
+
   current_user = User.find(session[:user_id]) if session[:user_id]
   log_of_user = Log.find(params[:id])
   user_to_follow = log_of_user.user
+
   if !user_to_follow.followers.include?(current_user)
-  current_user.followees << user_to_follow
-  current_user.save
-  redirect "/"
+    current_user.followees << user_to_follow
+    current_user.save
+  end
+
+  if request.xhr?
+    id = params[:id].to_i
+    content_type :json
+    {log_id: id}.to_json
   else
-  redirect "/"
-end
+    redirect "/"
+  end
+
+
 end
 
 post '/logs/:id/unfollow' do

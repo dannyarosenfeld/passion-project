@@ -109,7 +109,8 @@ $(".ajaxfollow").on('submit', ".followbut", function(event) {
 
   event.preventDefault();
   id = $(this).parent().attr('id');
-debugger;
+  id = id.substring(6);
+
     $.ajax({
     type: "post",
     url: "/logs/" + id + "/follow",
@@ -117,7 +118,9 @@ debugger;
 
   }).done(function (data){
 
-
+    var buttonthing = $("#" + "follow" + data.log_id).children(":first")
+    $(buttonthing).css("background", "blue");
+    debugger;
   });
 
 
