@@ -1,12 +1,22 @@
-<h1>Your Feed</h1>
-<h2>Check out logs of people you're following</h2>
+
 
 <style>
  body {
   background: #529FCD;
  }
+
+#pushdown {
+  margin-bottom: 20%;
+}
+
+  h2 {
+  margin-bottom: 5%;
+}
 </style>
 
+  <div id="pushdown"></div>
+<h1>Your Feed</h1>
+<h2>Check out logs of people you're following</h2>
   <div id="map"></div>
 
 <% @current_user.followees.each do |followee| %>
