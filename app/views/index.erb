@@ -33,8 +33,11 @@
        </form>
        <p class="followtext"> You are currently following <%= log.user.username %> <p>
        <% else %>
-        <form method="post" action='/logs/<%= log.id %>/follow'>
-       <input class="button" type="submit" value="Follow"> i</form>
+        <div id="follow<%= log.id %>">
+          <form class="followbut" method="post" action='/logs/<%= log.id %>/follow'>
+         <input class="button" type="submit" value="Follow">
+         </form>
+        </div>
      <% end %>
   <% end %>
 
@@ -42,8 +45,9 @@
    <% if log.title == "Leg" %>
       <img src="http://findicons.com/files/icons/2711/free_icons_for_windows8_metro/256/leg.png" alt="leg pic">
    <% end %>
-
-     <p><strong class="ftext"> <%= log.user.followers.count %> </strong> Followers</p>
+     <div id="fnum<%= log.id %>">
+        <p><strong id="fcount<%= log.id %>" class="ftext"> <%= log.user.followers.count %> </strong> Followers</p>
+     </div>
      <p><strong class="ftext"> <%= log.likes.count %> </strong> Favorited this log </p>
      <a href="/logs/<%=log.id %>"><%= log.title %></a>
      <p> Duration: <%= log.duration %> </p>

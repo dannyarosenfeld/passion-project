@@ -33,8 +33,11 @@ post '/logs/:id/follow' do
 
   if request.xhr?
     id = params[:id].to_i
+    @log = Log.find(id)
+    fcount = @log.user.followers.count
+    unfollow_but = erb :_unfollowbutton, :layout => false
     content_type :json
-    {log_id: id}.to_json
+    {log_id: id, unfollow: unfollow_but, fcount: fcount}.to_json
   else
     redirect "/"
   end
