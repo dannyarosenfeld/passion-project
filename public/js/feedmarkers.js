@@ -15,29 +15,34 @@
         var userinfo = document.getElementsByClassName('userinfo');
 
 
-
+        newArr = []
         for (var i = 0; i <address.length; i ++){
           addresstext = address[i].innerHTML
-          userinfotext = userinfo[i].innerHTML
+          console.log(addresstext)
 
-          var infowindow = new google.maps.InfoWindow({
-              content: "<p style='color: black'>" + userinfotext + "</p>"
-           });
-         console.log("Before the geocode callback")
-         console.log(userinfotext)
+          newArr.push(userinfo[i].innerHTML)
+          // userinfotext = userinfo[i].innerHTML
+
+
+           console.log("Before the geocode callback")
           geocoder.geocode({'address': addresstext}, function(results, status) {
             if (status === google.maps.GeocoderStatus.OK) {
               resultsMap.setCenter(results[0].geometry.location);
-              console.log("Within the geocode callback")
-               console.log(userinfotext)
               var marker = new google.maps.Marker({
                 map: resultsMap,
                 position: results[0].geometry.location
               });
 
+               var infowindow = new google.maps.InfoWindow({
+                  content: "<p style='color: black'>" + newArr.shift() + "</p>"
+               });
+
               marker.addListener('click', function() {
                 infowindow.open(resultsMap, marker);
               });
+
+
+
             }
             else {
               alert('Geocode was not successful for the following reason: ' + status);
