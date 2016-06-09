@@ -3,6 +3,19 @@
     body {
       background: #56BC8A;
     }
+
+    #username {
+      color: #B3D1FF;
+    }
+
+    #num {
+      color: #B3D1FF;
+    }
+
+    .comments {
+      border-bottom: 2px solid #B3D1FF;
+
+    }
   </style>
 
  <div id="map"></div>
@@ -25,14 +38,14 @@
   <%@log.workouts.each do |workout|  %>
 
     <% i += 1 %>
-    <strong> <%=i%> </strong>
+    <strong id="num"> <%=i%> </strong>
 
 
     <strong> <%=workout.name%> </strong>
     <strong>sets: <%=workout.sets%> </strong>
     <strong>reps: <%=workout.reps%> </strong>
     <strong> <%=workout.time_since_creation%> </strong>
-    </br>
+    </br></br>
 
   <% end %>
 
@@ -45,20 +58,14 @@
 
 
    <% @log.comments.each do |comment| %>
-    <p> <%= comment.user.username %> </p>
+   <div class="comments">
+    <h3> <%= comment.user.username %> </h3>
     <p> <%= comment.content %></p> </br>
-
+    </div>
    <% end %>
 
+    </div>
   </div>
-
-
-
-
-</div>
-
-
-
 </div
 
 
