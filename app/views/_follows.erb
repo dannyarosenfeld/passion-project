@@ -9,7 +9,7 @@
     <% if @user %>
        <form id="<%= log.id %>" method="post" action='/logs/<%= log.id%>/like'>
          <label for="like">Favorite</label>
-         <button type="submit" name="submit_param" value="submit_value" class="fa fa-sort-desc vote-button upvote-button"></button>
+         <button style='color: #B3D1FF; background: #36465D; border: 1px solid #36465D;  border-radius: 5px;' type="submit" name="submit_param" value="submit_value" class=" vote-button upvote-button fa fa-star"></button>
          <p id="ptag"> <%= log.likes.count %> Favorited this log </p>
        </form>
       <%if log.user.followers.include?(@user) %>
