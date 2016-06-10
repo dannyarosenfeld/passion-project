@@ -29,6 +29,8 @@
       <img src="<%= log.user.image %>" alt="user image">
       <p class="userinfo"><%= log.user.username %></p>
       <p class="paragraph"> <%= log.location %> </p>
+      <p class="created"><%= log.created_at.strftime("%d %b. %Y") %></p>
+
   <p> <%= log.likes.count %> people favorited this workout log</p>
    <a href="/logs/<%=log.id %>"><%= log.title %></a>
   <p> <%= log.duration %> </p>

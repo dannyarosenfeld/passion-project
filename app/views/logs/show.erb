@@ -35,7 +35,7 @@
     <a href="/logs/<%=@log.id %>"><%= @log.title %></a>
     <p> <%= @log.duration %> </p>
     <p id="paragraph"> <%= @log.location %> </p>
-
+    <p id="created"><%= @log.created_at.strftime("%d %b. %Y") %></p>
 
 
 

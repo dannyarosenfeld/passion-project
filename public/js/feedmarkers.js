@@ -34,7 +34,7 @@
               });
 
                var infowindow = new google.maps.InfoWindow({
-                  content: "<p style='color: black'>" + newArr.shift() + "</p>"
+                  content: "<strong style='color: #B3D1FF'>" + newArr.shift() + "</strong>"
                });
 
               marker.addListener('click', function() {

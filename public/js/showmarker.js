@@ -14,10 +14,11 @@
         //var address = document.getElementById('address').value;
         var address = document.getElementById('paragraph').innerHTML;
         var username = document.getElementById('username').innerHTML;
-
+        var created =  document.getElementById('created').innerHTML;
+        text = "<strong style='color: #B3D1FF'>" + username + "</strong></br><p style='color: black'>" + created + "</p>";
 
          var infowindow = new google.maps.InfoWindow({
-              content: "<p style='color: black'>" + username + "</p>"
+              content: text
            });
 
 
