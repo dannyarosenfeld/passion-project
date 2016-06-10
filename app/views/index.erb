@@ -28,10 +28,12 @@
 
     <%if log.user.followers.include?(@user) %>
 
-
-       <form method="post" action='/logs/<%= log.id %>/unfollow'>
+        <div id="unfollow<%= log.id %>">
+       <form class="unfollowme" method="post" action='/logs/<%= log.id %>/unfollow'>
          <input id="unfollow" class="button" type="submit" value="Unfollow">
        </form>
+        </div>
+
        <p class="followtext"> You are currently following <%= log.user.username %> <p>
        <% else %>
         <div id="follow<%= log.id %>">
