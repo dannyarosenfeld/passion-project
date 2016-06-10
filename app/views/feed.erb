@@ -6,26 +6,31 @@
  }
 
 
-
-  h1, h2 {
-    margin-left: 30%;
-}
-
   h2 {
     margin-bottom: 20px;
   }
+
+      .containeryes {
+
+    position: relative;
+    width: 800px;
+    margin: 0 auto;
+
+    }
+
+
 </style>
 
-  <div class="pushdown"></div>
 
     <h1>Your Feed</h1>
     <h2>Check out logs of people you're following</h2>
 
-    <div style="height:100%; width:100%; display:inline; margin-bottom: -300px;">
+
+
+<div class="containeryes">
+  <div style="height:100%; width:100%; position: absolute;">
            <div id="map"></div>
     </div>
-
-<div class="containerblock">
 <div class="containerthing">
 
 
@@ -48,8 +53,7 @@
 <style>
   html, body {
     height: 100%;
-    margin: 0;
-    padding: 0;
+
   }
   #map {
 
@@ -61,19 +65,19 @@
     left: 70%;*/
 
 
-     height: 70%;
+     height: 60%;
     width:70%;
 
     border-radius: 10px;
     border: 3.4px solid #47B28C;
-    left: 90%;
-    top: 3%;
+    left: 40%;
+
 
 
 
 
   }
- #floating-panel {
+/* #floating-panel {
   color: black;
   margin-top: 100px;
         position: absolute;
@@ -87,7 +91,7 @@
         font-family: 'Roboto','sans-serif';
         line-height: 30px;
         padding-left: 10px;
-      }
+      }*/
     </style>
   <script src="js/feedmarkers.js"></script>
 
