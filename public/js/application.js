@@ -154,7 +154,7 @@ $("body").on('submit', ".followbut", function(event) {
     $(buttonthing).append(data.unfollow);
     divthing = $("#" + numlikes)[0];
     $(divthing).children(":first").children(":first").empty().append("<span style='color: green'>" + data.fcount + "</span>");
-    $(divthing)
+
     // $("#fcount" + data.log_id).empty.
 
   });
@@ -184,7 +184,7 @@ $("body").on('submit', ".unfollowme", function(event) {
     $(buttonthing3).append(data.follow);
     divthing3 = $("#" + numlikes)[0];
     $(divthing3).children(":first").children(":first").empty().append("<span style='color: green'>" + data.fcount + "</span>");
-    $(divthing3)
+
 
     // $("#fcount" + data.log_id).empty.
 
@@ -193,6 +193,23 @@ $("body").on('submit', ".unfollowme", function(event) {
 
 
 
+
+$("#comment-form").on('submit', function(event) {
+
+  event.preventDefault();
+  var inputs = $(this).serialize();
+
+  $.ajax({
+    type: "post",
+    url: "/comments",
+    data: inputs
+
+  }).done(function (data){
+
+    $(".realcomments").append(data);
+      $("textarea").val('');
+  });
+});
 
 
 

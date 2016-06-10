@@ -18,9 +18,7 @@
 
     }
 
-    #comment-form {
-      margin-left: 5%;
-    }
+
 
       .containeryes {
     display: block;
@@ -78,19 +76,19 @@
     </div> -->
   </div>
     </div>
-
+    <div class="realcomments">
    <% @log.comments.each do |comment| %>
    <div class="comments">
     <h3> <%= comment.user.username %> </h3>
     <p> <%= comment.content %></p> </br>
     </div>
    <% end %>
+    </div>
 
-
-    <form id="comment-form" method="post" action="/comments">
+    <form  id="comment-form" method="post" action="/comments">
  <input type="hidden" name="logid" value="<%= @log.id %>">
 
-  <textarea name="content" placeholder="content"> </textarea> </br>
+  <textarea style="background: #B3D1FF; border:1px solid white; border-radius: 5px; color: white;" name="content" placeholder="Write stuff!"> </textarea> </br>
   <input type="submit" value="comment">
 </form>
 
