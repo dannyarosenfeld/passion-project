@@ -43,11 +43,12 @@
 
     <img src="<%= @log.user.image %>" alt="user image" width="150" height="150">
      <p id="username"><%= @log.user.username %></p>
+     <a href="/logs/<%=@log.id %>"><%= @log.title %></a>
     <p> <%= @log.likes.count %> people favorited this workout log</p>
 
 
 
-    <a href="/logs/<%=@log.id %>"><%= @log.title %></a>
+
     <p> <%= @log.duration %> </p>
     <p id="paragraph"> <%= @log.location %> </p>
     <p id="created"><%= @log.created_at.strftime("%d %b. %Y") %></p>

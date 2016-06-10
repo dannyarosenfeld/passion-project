@@ -117,11 +117,19 @@ $(".ajaxfollow").on('submit', ".followbut", function(event) {
     data: id
 
   }).done(function (data){
+
     var buttonthing = $("#" + "follow" + data.log_id).children(":first")
-    //$(buttonthing).css("background", "blue");
+     var numlikes2 = $("#fcount2" + data.log_id).parent().parent().attr('id');
+
     $(buttonthing).empty();
     $(buttonthing).append(data.unfollow);
-   // debugger;
+    divthing2 = $("#" + numlikes2)[0];
+
+    $(divthing2).children(":first").children(":first").empty().append("<span style='color: green'>" + (data.fcount - 1) + "<p style='color: white'>" + "Followers" + "<p>" + "</span>");
+
+
+
+
   });
 })
 

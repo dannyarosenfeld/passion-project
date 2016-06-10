@@ -30,7 +30,9 @@
       <img src="http://findicons.com/files/icons/2711/free_icons_for_windows8_metro/256/leg.png" alt="leg pic">
     <% end %>
 
-     <p><%= log.user.followers.count %> Followers</p>
+      <div id="fnum2<%= log.id %>">
+     <p><strong id="fcount2<%= log.id %>" class="ftext"> <%= log.user.followers.count %> Followers</strong></p>
+      </div>
 
      <a href="/logs/<%=log.id %>"><%= log.title %></a>
      <p> Duration: <%= log.duration %> </p>

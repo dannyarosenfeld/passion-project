@@ -50,8 +50,9 @@
         <p><strong id="fcount<%= log.id %>" class="ftext"> <%= log.user.followers.count %> </strong> Followers</p>
      </div>
      <p><strong class="ftext"> <%= log.likes.count %> </strong> Favorited this log </p>
-     <a href="/logs/<%=log.id %>"><%= log.title %></a>
      <p> Duration: <%= log.duration %> </p>
+     <a href="/logs/<%=log.id %>"><%= log.title %></a>
+
    </div>
    <% end %>
  </div>
