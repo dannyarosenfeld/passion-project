@@ -26,6 +26,7 @@
 
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container">
+
   <ul class="list nav navbar-nav">
     <% if session[:user_id] %>
       <li><a href="/">Home</a></li>
@@ -33,6 +34,7 @@
       <li><a href="/groupup">Group Up</a></li>
       <li><a href="/feed">My Feed</a></li>
       <li><a href="/newest">Newest</a></li>
+
     <% else  %>
       <li><a href="/">Home</a></li>
         <img src="https://cdn2.iconfinder.com/data/icons/solidix-sports-circular/128/sports_equipment-06-128.png" alt="weights" width="60" height="60">

@@ -18,7 +18,7 @@
     }
 
     #comment-form {
-      margin-left: 10%;
+      margin-left: 5%;
     }
 
 
@@ -75,6 +75,14 @@
     </div>
    <% end %>
 
+
+    <form id="comment-form" method="post" action="/comments">
+ <input type="hidden" name="logid" value="<%= @log.id %>">
+
+  <textarea name="content" placeholder="content"> </textarea> </br>
+  <input type="submit" value="comment">
+</form>
+
     </div>
 </div>
 
@@ -82,12 +90,6 @@
 
 
 
-<form id="comment-form" method="post" action="/comments">
- <input type="hidden" name="logid" value="<%= @log.id %>">
-
-  <textarea name="content" placeholder="content"> </textarea> </br>
-  <input type="submit" value="create">
-</form>
 
 
 

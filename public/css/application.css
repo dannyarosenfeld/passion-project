@@ -8,6 +8,7 @@ body {
   max-width: 700px;
   margin: 0 auto;
   font-family: 'Raleway', sans-serif;
+  position: relative;
    }
 
 textarea {
@@ -82,10 +83,11 @@ img {
   margin-top: 20px;
 }
 .containerblock {
-      margin-top: -60%;
+      min-width: 600px;
+      margin-top: -65%;
       margin-left: 30%;
      max-width: 700px;
-  margin-left: left 30%;
+
 }
 
 
