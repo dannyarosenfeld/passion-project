@@ -2,6 +2,7 @@
   <style>
     body {
       background: #56BC8A;
+
     }
 
     #username {
@@ -21,14 +22,21 @@
       margin-left: 5%;
     }
 
+    .containeryes {
+      display: block;
+        position: relative;
+        width: 800px;
+  margin: 0 auto;
 
+    }
 
   </style>
-  <div class="pushdown"></div>
- <div class="mapcontainer" style="height: 100%; width: 100%; display: inline; margin-bottom: -300px;">
+
+
+<div class="containeryes">
+<div class="mapcontainer" style="height: 100%; width: 100%; position: absolute;">
     <div id="map"></div>
   </div>
-<div class="containerblock">
 <div class="containerthing">
 
 
@@ -66,7 +74,8 @@
       <input id="address" type="textbox" value="Sydney, NSW">
       <input id="submit" type="button" value="Geocode">
     </div> -->
-
+  </div>
+    </div>
 
    <% @log.comments.each do |comment| %>
    <div class="comments">
@@ -83,8 +92,7 @@
   <input type="submit" value="comment">
 </form>
 
-    </div>
-</div>
+
 
 
 
@@ -101,19 +109,19 @@
 
 <style>
   html, body {
-    height: 100%;
+  /*  height: 100%;
     margin: 0;
-    padding: 0;
+    padding: 0;*/
 
   }
   #map {
-      height: 60%;
-    width:70%;
+      height: 100%;
+    width:60%;
 
     border-radius: 10px;
     border: 3.4px solid #47B28C;
-    left: 90%;
-    top: 3%;
+    left: 40%;
+
 
   }
  #floating-panel {
