@@ -81,9 +81,18 @@ img {
 .showlog {
   margin-top: 20px;
 }
+.containerblock {
+      margin-top: -60%;
+      margin-left: 30%;
+     max-width: 700px;
+  margin-left: left 30%;
+}
+
 
 .containerthing {
+  display: inline;
 
-  margin-left: 8%;
+    max-width: 700px;
+  margin: 0 auto;
 
 }

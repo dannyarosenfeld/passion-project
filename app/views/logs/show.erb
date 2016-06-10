@@ -21,11 +21,17 @@
       margin-left: 10%;
     }
 
+
+
   </style>
   <div class="pushdown"></div>
- <div id="map"></div>
-<!-- <div class="containerthing"> -->
+ <div class="mapcontainer" style="height: 100%; width: 100%; display: inline; margin-bottom: -300px;">
+    <div id="map"></div>
+  </div>
+<div class="containerblock">
 <div class="containerthing">
+
+
     <img src="<%= @log.user.image %>" alt="user image" width="150" height="150">
      <p id="username"><%= @log.user.username %></p>
     <p> <%= @log.likes.count %> people favorited this workout log</p>
@@ -70,7 +76,6 @@
    <% end %>
 
     </div>
-  </div>
 </div>
 
 
@@ -102,10 +107,10 @@
   #map {
       height: 60%;
     width:70%;
-    float: right;
+
     border-radius: 10px;
     border: 3.4px solid #47B28C;
-    left: 80%;
+    left: 90%;
     top: 3%;
 
   }
