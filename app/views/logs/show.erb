@@ -16,8 +16,13 @@
       border-bottom: 2px solid #B3D1FF;
 
     }
-  </style>
 
+    #comment-form {
+      margin-left: 10%;
+    }
+
+  </style>
+  <div class="pushdown"></div>
  <div id="map"></div>
 <!-- <div class="containerthing"> -->
 <div class="containerthing">
@@ -66,11 +71,18 @@
 
     </div>
   </div>
-</div
+</div>
 
 
 
 
+
+<form id="comment-form" method="post" action="/comments">
+ <input type="hidden" name="logid" value="<%= @log.id %>">
+
+  <textarea name="content" placeholder="content"> </textarea> </br>
+  <input type="submit" value="create">
+</form>
 
 
 
@@ -85,15 +97,17 @@
     height: 100%;
     margin: 0;
     padding: 0;
+
   }
   #map {
-      height: 80%;
+      height: 60%;
     width:70%;
     float: right;
     border-radius: 10px;
     border: 3.4px solid #47B28C;
     left: 80%;
     top: 3%;
+
   }
  #floating-panel {
   color: black;

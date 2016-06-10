@@ -5,20 +5,22 @@
   background: #529FCD;
  }
 
-#pushdown {
-  margin-bottom: 20%;
-}
 
-  h2 {
+
+  h1, h2 {
   margin-bottom: 5%;
+  width: 200px;
 }
 </style>
 
-  <div id="pushdown"></div>
-<h1>Your Feed</h1>
-<h2>Check out logs of people you're following</h2>
+  <div class="pushdown"></div>
+
   <div id="map"></div>
 
+<div class="containerthing">
+
+ <h1>Your Feed</h1>
+<h2>Check out logs of people you're following</h2>
 <% @current_user.followees.each do |followee| %>
   <%followee.logs.each do |log|%>
       <img src="<%= log.user.image %>" alt="user image">
@@ -29,7 +31,7 @@
   <p> <%= log.duration %> </p>
   <% end %>
 <% end %>
-
+</div>
 <meta name="viewport" content="initial-scale=1.0">
 
 <style>
@@ -44,7 +46,7 @@
     float: right;
     border-radius: 10px;
     border: 3.4px solid #47B28C;
-    left: 40%;
+    left: 70%;
   }
  #floating-panel {
   color: black;

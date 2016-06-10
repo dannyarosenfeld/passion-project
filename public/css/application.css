@@ -10,6 +10,15 @@ body {
   font-family: 'Raleway', sans-serif;
    }
 
+textarea {
+  color: black;
+}
+
+.pushdown {
+  margin-bottom: 20%;
+}
+
+
   nav {
   font-family: 'Raleway', sans-serif;
 }
