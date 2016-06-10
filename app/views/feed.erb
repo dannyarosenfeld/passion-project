@@ -8,19 +8,22 @@
 
 
   h1, h2 {
-  margin-bottom: 5%;
-  width: 200px;
+    margin-left: 8%;
 }
 </style>
 
   <div class="pushdown"></div>
 
-  <div id="map"></div>
+ <h1>Your Feed</h1>
+<h2>Check out logs of people you're following</h2>
+ <div style="height:100%; width:100%; display:inline;">
+           <div id="map"></div>
+    </div>
+
 
 <div class="containerthing">
 
- <h1>Your Feed</h1>
-<h2>Check out logs of people you're following</h2>
+
 <% @current_user.followees.each do |followee| %>
   <%followee.logs.each do |log|%>
       <img src="<%= log.user.image %>" alt="user image">
@@ -41,7 +44,8 @@
     padding: 0;
   }
   #map {
-    height: 60%;
+
+    height: 90%;
     width:70%;
     float: right;
     border-radius: 10px;
