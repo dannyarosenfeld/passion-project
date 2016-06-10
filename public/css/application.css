@@ -7,7 +7,17 @@ body {
   font-family: Verdana;
   max-width: 700px;
   margin: 0 auto;
+  font-family: 'Raleway', sans-serif;
    }
+
+textarea {
+  color: black;
+}
+
+.pushdown {
+  margin-bottom: 20%;
+}
+
 
   nav {
   font-family: 'Raleway', sans-serif;
@@ -73,7 +83,7 @@ img {
 }
 
 .containerthing {
-  margin-top: 50px;
+
   margin-left: 8%;
 
 }

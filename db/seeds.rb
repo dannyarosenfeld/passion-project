@@ -1,3 +1,51 @@
+comments = [
+"Franzen vice deep v green juice schlitz banh mi before they sold out neutra. 8-bit ramps asymmetrical fap bushwick.",
+"Lomo letterpress kogi swag, kitsch meditation deep v art party paleo locavore.",
+"Neutra pitchfork schlitz, crucifix swag put a bird on it truffaut kickstarter ",
+"kogi banh mi cray quinoa listicle gastropub. Retro ennui occupy pabst. ",
+"Pitchfork butcher forage, pork belly skateboard art party slow-carb echo park flannel wayfarers lomo biodiesel ",
+"freegan gentrify. Aesthetic echo park yr hammock, yuccie bicycle rights butcher offal kickstarter.",
+"Craft beer drinking vinegar small batch, cornhole pinterest aesthetic trust fund plaid cliche williamsburg ",
+"gluten-free authentic. Ennui ethical godard pinterest neutra, intelligentsia echo park retro gluten-free ",
+"shoreditch cred migas chartreuse XOXO. Shabby chic biodiesel yuccie, single-origin coffee whatever direct trade",
+"gastropub try-hard. Meggings mumblecore migas, occupy pug leggings farm-to-table venmo tumblr portland freegan. ",
+"Four loko lo-fi ennui, mustache pickled ramps marfa. Scenester forage master cleanse waistcoat, artisan brooklyn ",
+"authentic neutra DIY twee aesthetic cardigan slow-carb irony.",
+"Occupy organic banjo pitchfork, chillwave narwhal quinoa."
+]
+
+  exercises = [
+"Plank up-down",
+"Standard push-up ",
+"Walking push-up",
+"T push-up",
+"Spiderman push-up",
+"Staggered push-up",
+"Wide grip push-up",
+"Negative push-up",
+"One foot elevated push-up",
+"Hindu push-up",
+"Incline push-up",
+"Feet elevated push-up",
+"Tricep push-up",
+"Tricep bench dip",
+"Elevated tricep bench dip",
+"Lying triceps lift ",
+"Handstand hold",
+"Inch worm",
+"Shoulder circles",
+"Lateral raise ",
+"Pike shoulder press",
+"Pull-up",
+"Jumping pull-ups",
+"Straight arm shoulder raise",
+"Air boxing",
+"Shoulder stabilization series"
+  ]
+
+
+
+
 i = 0
 20.times do (
   avatars = ["http://kunmingrock.com/wp-content/uploads/funny-looking-white-guy2-150x150.jpg",
@@ -6,11 +54,11 @@ i = 0
   "http://www.ces.clemson.edu/spilla/wp-content/uploads/2014/04/Web-profile3-150x150.jpg",
   "http://www.active.com/Assets/Swimming/swimming-yoga.jpg",
   "http://www.ultiphotos.com/img/s2/v61/p1230985504-3.jpg",
+  "https://scontent.cdninstagram.com/hphotos-xat1/t51.2885-15/s150x150/e35/c237.0.605.605/12328350_1715315002035044_1302712250_n.jpg",
   "http://loughboroughsport.com/au-football-women/files/2014/08/12115500_1052975911401131_5293067558543813036_n-150x150.jpg",
   "http://www.10honeymoondestinations.com/wp-content/uploads/2013/08/Rock-Climbing-150x150.jpg",
-  "https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&ved=&url=http%3A%2F%2Fwww.mortensvenningsen.com%2Fphotos%2Fd%2F142-2%2FRock%2BClimbing%2B2.jpg&bvm=bv.123664746,d.cGc&psig=AFQjCNEw_DVb5ajtGrhprJto-elQFbfUgg&ust=1465177561733610",
   "http://baristanet.com/wp-content/uploads/2016/05/IMG_0156-150x150.jpg",
-  "https://s-media-cache-ak0.pinimg.com/236x/9a/52/f5/9a52f5105ea68189fa1568b2d2acb70a.jpg",
+  "http://bethrodden.com/wp-content/uploads/2016/03/IMG_9477-150x150.jpg",
   "http://www.literaryorphans.org/playdb/wp-content/uploads/2015/12/Invisiblemartyr-profile-picture-150x150.jpg",
   "http://www.cbn2.com/wp-content/uploads/2014/01/hipster-men-fashion-hairstyles-183491-150x150.jpg",
 "http://annapolisrunningclassic.com/wp-content/uploads/2015/05/Eric-Shulman-cropped3-150x150.png",
@@ -42,7 +90,7 @@ i = 0
 
  100.times do (
    Comment.create(
-     content: Faker::Lorem.words(5),
+     content: comments.sample,
      log_id: rand(1..20),
      user_id: rand(1..20)
      )
@@ -51,7 +99,7 @@ i = 0
 
 locationary = ["san francisco", "california", "berkeley", "fremont", "richmond california", "walnut creek", "daly city"]
 20.times do
-  log = Log.create(title: Faker::Lorem.sentence(3), duration: "1 hour", user_id: rand(1..20), location: locationary.sample)
+  log = Log.create(title: exercises.sample, duration: "1 hour", user_id: rand(1..20), location: locationary.sample)
   like_count = rand(50)
   like_count.times do
     log.likes.create(value: 1, user_id: rand(1..20))
@@ -59,11 +107,13 @@ locationary = ["san francisco", "california", "berkeley", "fremont", "richmond c
 end
 
 100.times do
-  Workout.create(name: Faker::Lorem.sentence(3), sets: rand(1..3), reps: rand(1..15), log_id: rand(1..20))
+
+  Workout.create(name: exercises.sample, sets: rand(1..3), reps: rand(1..15), log_id: rand(1..20))
 
 end
 
-20.times {com = Comment.create(content: Faker::Lorem.sentence(6), user_id: rand(1..20), log_id: rand(1..20) )
+
+20.times {com = Comment.create(content: comments.sample, user_id: rand(1..20), log_id: rand(1..20) )
   like_count = rand(50)
   like_count.times do
     com.likes.create(value: 1, user_id: rand(1..20))

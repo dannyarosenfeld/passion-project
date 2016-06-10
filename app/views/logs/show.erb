@@ -1,9 +1,33 @@
   <link rel="stylesheet" href="/../css/application.css">
+  <style>
+    body {
+      background: #56BC8A;
+    }
 
+    #username {
+      color: #B3D1FF;
+    }
+
+    #num {
+      color: #B3D1FF;
+    }
+
+    .comments {
+      border-bottom: 2px solid #B3D1FF;
+
+    }
+
+    #comment-form {
+      margin-left: 10%;
+    }
+
+  </style>
+  <div class="pushdown"></div>
  <div id="map"></div>
 <!-- <div class="containerthing"> -->
 <div class="containerthing">
     <img src="<%= @log.user.image %>" alt="user image" width="150" height="150">
+     <p id="username"><%= @log.user.username %></p>
     <p> <%= @log.likes.count %> people favorited this workout log</p>
 
 
@@ -19,14 +43,14 @@
   <%@log.workouts.each do |workout|  %>
 
     <% i += 1 %>
-    <strong> <%=i%> </strong>
+    <strong id="num"> <%=i%> </strong>
 
 
     <strong> <%=workout.name%> </strong>
     <strong>sets: <%=workout.sets%> </strong>
     <strong>reps: <%=workout.reps%> </strong>
     <strong> <%=workout.time_since_creation%> </strong>
-    </br>
+    </br></br>
 
   <% end %>
 
@@ -39,25 +63,26 @@
 
 
    <% @log.comments.each do |comment| %>
-    <p> <%= comment.user.username %> </p>
+   <div class="comments">
+    <h3> <%= comment.user.username %> </h3>
     <p> <%= comment.content %></p> </br>
-
+    </div>
    <% end %>
 
+    </div>
   </div>
-
-
-
-
 </div>
 
 
 
-</div
 
 
+<form id="comment-form" method="post" action="/comments">
+ <input type="hidden" name="logid" value="<%= @log.id %>">
 
-
+  <textarea name="content" placeholder="content"> </textarea> </br>
+  <input type="submit" value="create">
+</form>
 
 
 
@@ -72,15 +97,17 @@
     height: 100%;
     margin: 0;
     padding: 0;
+
   }
   #map {
-      height: 80%;
+      height: 60%;
     width:70%;
     float: right;
     border-radius: 10px;
     border: 3.4px solid #47B28C;
     left: 80%;
     top: 3%;
+
   }
  #floating-panel {
   color: black;

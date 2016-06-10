@@ -117,13 +117,39 @@ $(".ajaxfollow").on('submit', ".followbut", function(event) {
     data: id
 
   }).done(function (data){
-
     var buttonthing = $("#" + "follow" + data.log_id).children(":first")
-    $(buttonthing).css("background", "blue");
-    debugger;
+    //$(buttonthing).css("background", "blue");
+    $(buttonthing).empty();
+    $(buttonthing).append(data.unfollow);
+   // debugger;
   });
+})
 
+//async follow for index
+$("body").on('submit', ".followbut", function(event) {
 
+  event.preventDefault();
+  id = $(this).parent().attr('id');
+  id = id.substring(6);
+
+    $.ajax({
+    type: "post",
+    url: "/logs/" + id + "/follow",
+    data: id
+
+  }).done(function (data){
+    var buttonthing = $("#" + "follow" + data.log_id).children(":first")
+    //$(buttonthing).css("background", "blue");
+    var numlikes = $("#fcount" + data.log_id).parent().parent().attr('id');
+
+    $(buttonthing).empty();
+    $(buttonthing).append(data.unfollow);
+    divthing = $("#" + numlikes)[0];
+    $(divthing).children(":first").children(":first").empty().append("<span style='color: green'>" + data.fcount + "</span>");
+    $(divthing)
+    // $("#fcount" + data.log_id).empty.
+
+  });
 })
 
 
