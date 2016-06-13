@@ -134,10 +134,11 @@ $(".ajaxfollow").on('submit', ".followbut", function(event) {
 })
 
 //async follow for index
-$("body").on('submit', ".followbut", function(event) {
+$(".followbut").on('submit', function(event) {
 
   event.preventDefault();
   id = $(this).parent().attr('id');
+
   id = id.substring(6);
 
     $.ajax({
@@ -165,7 +166,8 @@ $("body").on('submit', ".followbut", function(event) {
 $("body").on('submit', ".unfollowme", function(event) {
 
   event.preventDefault();
-  id = $(this).parent().attr('id');
+  id = $(this).parent().attr('class');
+
   id = id.substring(8);
 
     $.ajax({
@@ -176,15 +178,16 @@ $("body").on('submit', ".unfollowme", function(event) {
   }).done(function (data){
 
 
-    var buttonthing3 = $("#" + "unfollow" + data.log_id).children(":first")
+    var buttonthing3 = $(".unfollow" + data.log_id)
     //$(buttonthing).css("background", "blue");
+
     var numlikes = $("#fcount" + data.log_id).parent().parent().attr('id');
 
     $(buttonthing3).empty();
     $(buttonthing3).append(data.follow);
     divthing3 = $("#" + numlikes)[0];
     $(divthing3).children(":first").children(":first").empty().append("<span style='color: green'>" + data.fcount + "</span>");
-
+    //$(buttonthing3).children(":last").hide();
 
     // $("#fcount" + data.log_id).empty.
 
