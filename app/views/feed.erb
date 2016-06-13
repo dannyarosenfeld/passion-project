@@ -25,7 +25,9 @@
     <h1>Your Feed</h1>
     <h2>Check out log locations of people you're following</h2>
 
-
+    <% if @current_user.followees.count == 0 %>
+      <h3>You aren't following anyone :/</h3>
+    <% end %>
 
 <div class="containeryes">
   <div style="height:100%; width:100%; position: absolute;">
