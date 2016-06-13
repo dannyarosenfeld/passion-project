@@ -1,12 +1,21 @@
+ <style>
+
+  body {
+    color: white;
+    background: grey;
+
+  }
+ </style>
+
  <% if @user %>
- <%= @user.username  %>
+  <strong>Welcome <%= @user.username  %></strong>
  <% end %>
 <div class='welcome'></div>
 
 <h3><a id="new-log" href="#">Create a new log</a></h3>
 <div id="log-form-div"></div>
  <h1>Top Exercise Logs</h1>
-
+  <h2>Sorted By Newest Content</h2>
  <div class="ajaxfollow"></div>
 
 <div id="loglist">
@@ -20,7 +29,7 @@
     <% if @user %>
      <form  method="post" action='/logs/<%= log.id %>/like'>
        <label for="like">Favorite</label>
-       <button type="submit" name="submit_param" value="submit_value" class="fa fa-sort-desc vote-button upvote-button"></button>
+       <button style='color: #B3D1FF; background: #36465D; border: 1px solid #36465D;  border-radius: 5px;' class="fa fa-star" type="submit" name="submit_param" value="submit_value" class="fa fa-sort-desc vote-button upvote-button"></button>
      </form>
 
 
@@ -49,8 +58,9 @@
         <p><strong id="fcount<%= log.id %>" class="ftext"> <%= log.user.followers.count %> </strong> Followers</p>
      </div>
      <p><strong class="ftext"> <%= log.likes.count %> </strong> Favorited this log </p>
+      <p> Duration: <%= log.duration %> </p>
      <a href="/logs/<%=log.id %>"><%= log.title %></a>
-     <p> Duration: <%= log.duration %> </p>
+
    </div>
    <% end %>
  </div>

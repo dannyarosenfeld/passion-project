@@ -6,21 +6,33 @@
  }
 
 
+  h2 {
+    margin-bottom: 20px;
+  }
 
-  h1, h2 {
-    margin-left: 8%;
-}
+      .containeryes {
+
+    position: relative;
+    width: 800px;
+    margin: 0 auto;
+
+    }
+
+
 </style>
 
-  <div class="pushdown"></div>
 
- <h1>Your Feed</h1>
-<h2>Check out logs of people you're following</h2>
- <div style="height:100%; width:100%; display:inline;">
+    <h1>Your Feed</h1>
+    <h2>Check out log locations of people you're following</h2>
+
+    <% if @current_user.followees.count == 0 %>
+      <h3>You aren't following anyone :/</h3>
+    <% end %>
+
+<div class="containeryes">
+  <div style="height:100%; width:100%; position: absolute;">
            <div id="map"></div>
     </div>
-
-
 <div class="containerthing">
 
 
@@ -29,30 +41,45 @@
       <img src="<%= log.user.image %>" alt="user image">
       <p class="userinfo"><%= log.user.username %></p>
       <p class="paragraph"> <%= log.location %> </p>
+      <p class="created"><%= log.created_at.strftime("%d %b. %Y") %></p>
+
   <p> <%= log.likes.count %> people favorited this workout log</p>
    <a href="/logs/<%=log.id %>"><%= log.title %></a>
   <p> <%= log.duration %> </p>
   <% end %>
 <% end %>
 </div>
+</div>
 <meta name="viewport" content="initial-scale=1.0">
 
 <style>
   html, body {
     height: 100%;
-    margin: 0;
-    padding: 0;
+
   }
   #map {
 
-    height: 90%;
+ /*   height: 90%;
     width:70%;
     float: right;
     border-radius: 10px;
     border: 3.4px solid #47B28C;
-    left: 70%;
+    left: 70%;*/
+
+
+     height: 60%;
+    width:70%;
+
+    border-radius: 10px;
+    border: 3.4px solid #47B28C;
+    left: 40%;
+
+
+
+
+
   }
- #floating-panel {
+/* #floating-panel {
   color: black;
   margin-top: 100px;
         position: absolute;
@@ -66,7 +93,7 @@
         font-family: 'Roboto','sans-serif';
         line-height: 30px;
         padding-left: 10px;
-      }
+      }*/
     </style>
   <script src="js/feedmarkers.js"></script>
 

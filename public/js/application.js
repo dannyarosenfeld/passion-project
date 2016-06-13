@@ -117,11 +117,19 @@ $(".ajaxfollow").on('submit', ".followbut", function(event) {
     data: id
 
   }).done(function (data){
+
     var buttonthing = $("#" + "follow" + data.log_id).children(":first")
-    //$(buttonthing).css("background", "blue");
+     var numlikes2 = $("#fcount2" + data.log_id).parent().parent().attr('id');
+
     $(buttonthing).empty();
     $(buttonthing).append(data.unfollow);
-   // debugger;
+    divthing2 = $("#" + numlikes2)[0];
+
+    $(divthing2).children(":first").children(":first").empty().append("<span style='color: green'>" + (data.fcount - 1) + "<p style='color: white'>" + "Followers" + "<p>" + "</span>");
+
+
+
+
   });
 })
 
@@ -146,11 +154,64 @@ $("body").on('submit', ".followbut", function(event) {
     $(buttonthing).append(data.unfollow);
     divthing = $("#" + numlikes)[0];
     $(divthing).children(":first").children(":first").empty().append("<span style='color: green'>" + data.fcount + "</span>");
-    $(divthing)
+
     // $("#fcount" + data.log_id).empty.
 
   });
 })
+
+
+
+$("body").on('submit', ".unfollowme", function(event) {
+
+  event.preventDefault();
+  id = $(this).parent().attr('id');
+  id = id.substring(8);
+
+    $.ajax({
+    type: "post",
+    url: "/logs/" + id + "/unfollow",
+    data: id
+
+  }).done(function (data){
+
+
+    var buttonthing3 = $("#" + "unfollow" + data.log_id).children(":first")
+    //$(buttonthing).css("background", "blue");
+    var numlikes = $("#fcount" + data.log_id).parent().parent().attr('id');
+
+    $(buttonthing3).empty();
+    $(buttonthing3).append(data.follow);
+    divthing3 = $("#" + numlikes)[0];
+    $(divthing3).children(":first").children(":first").empty().append("<span style='color: green'>" + data.fcount + "</span>");
+
+
+    // $("#fcount" + data.log_id).empty.
+
+  });
+})
+
+
+
+
+$("#comment-form").on('submit', function(event) {
+
+  event.preventDefault();
+  var inputs = $(this).serialize();
+
+  $.ajax({
+    type: "post",
+    url: "/comments",
+    data: inputs
+
+  }).done(function (data){
+
+    $(".realcomments").append(data);
+      $("textarea").val('');
+  });
+});
+
+
 
 
 

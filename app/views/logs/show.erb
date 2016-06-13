@@ -2,6 +2,7 @@
   <style>
     body {
       background: #56BC8A;
+
     }
 
     #username {
@@ -17,25 +18,38 @@
 
     }
 
-    #comment-form {
-      margin-left: 10%;
+
+
+      .containeryes {
+    display: block;
+    position: relative;
+    width: 800px;
+    margin: 0 auto;
+
     }
 
+
   </style>
-  <div class="pushdown"></div>
- <div id="map"></div>
-<!-- <div class="containerthing"> -->
+
+
+<div class="containeryes">
+<div class="mapcontainer" style="height: 100%; width: 100%; position: absolute;">
+    <div id="map"></div>
+  </div>
 <div class="containerthing">
+
+
     <img src="<%= @log.user.image %>" alt="user image" width="150" height="150">
      <p id="username"><%= @log.user.username %></p>
+     <a href="/logs/<%=@log.id %>"><%= @log.title %></a>
     <p> <%= @log.likes.count %> people favorited this workout log</p>
 
 
 
-    <a href="/logs/<%=@log.id %>"><%= @log.title %></a>
+
     <p> <%= @log.duration %> </p>
     <p id="paragraph"> <%= @log.location %> </p>
-
+    <p id="created"><%= @log.created_at.strftime("%d %b. %Y") %></p>
 
 
 
@@ -60,29 +74,30 @@
       <input id="address" type="textbox" value="Sydney, NSW">
       <input id="submit" type="button" value="Geocode">
     </div> -->
-
-
+  </div>
+    </div>
+    <div class="realcomments">
    <% @log.comments.each do |comment| %>
    <div class="comments">
     <h3> <%= comment.user.username %> </h3>
     <p> <%= comment.content %></p> </br>
     </div>
    <% end %>
-
     </div>
-  </div>
-</div>
 
-
-
-
-
-<form id="comment-form" method="post" action="/comments">
+    <form  id="comment-form" method="post" action="/comments">
  <input type="hidden" name="logid" value="<%= @log.id %>">
 
-  <textarea name="content" placeholder="content"> </textarea> </br>
-  <input type="submit" value="create">
+  <textarea style="background: #B3D1FF; border:1px solid white; border-radius: 5px; color: white;" name="content" placeholder="Write stuff!"> </textarea> </br>
+  <input type="submit" value="comment">
 </form>
+
+
+
+
+
+
+
 
 
 
@@ -94,19 +109,19 @@
 
 <style>
   html, body {
-    height: 100%;
+  /*  height: 100%;
     margin: 0;
-    padding: 0;
+    padding: 0;*/
 
   }
   #map {
-      height: 60%;
-    width:70%;
-    float: right;
+      height: 100%;
+    width:60%;
+
     border-radius: 10px;
     border: 3.4px solid #47B28C;
-    left: 80%;
-    top: 3%;
+    left: 40%;
+
 
   }
  #floating-panel {

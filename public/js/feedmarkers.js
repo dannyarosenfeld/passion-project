@@ -13,14 +13,18 @@
         //var address = document.getElementById('address').value;
         var address = document.getElementsByClassName('paragraph');
         var userinfo = document.getElementsByClassName('userinfo');
+        var createdat = document.getElementsByClassName('created');
 
 
         newArr = []
+        createdArr = []
+
         for (var i = 0; i <address.length; i ++){
           addresstext = address[i].innerHTML
           console.log(addresstext)
 
           newArr.push(userinfo[i].innerHTML)
+          createdArr.push(createdat[i].innerHTML)
           // userinfotext = userinfo[i].innerHTML
 
 
@@ -34,7 +38,7 @@
               });
 
                var infowindow = new google.maps.InfoWindow({
-                  content: "<p style='color: black'>" + newArr.shift() + "</p>"
+                  content: "<strong style='color: #B3D1FF'>" + newArr.shift() + "</strong>" + "<p style='color: black'>" + createdArr.shift() + "</p>"
                });
 
               marker.addListener('click', function() {

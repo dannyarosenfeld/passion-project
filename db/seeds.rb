@@ -97,7 +97,7 @@ i = 0
    )
  end
 
-locationary = ["san francisco", "california", "berkeley", "fremont", "richmond california", "walnut creek", "daly city"]
+locationary = ["san francisco", "concord ca", "antioch ca", "vallejo", "el cerrito", "orinda ca", "lafayette", "san jose", "walnut creek" "california", "berkeley", "fremont", "richmond california", "walnut creek", "daly city"]
 20.times do
   log = Log.create(title: exercises.sample, duration: "1 hour", user_id: rand(1..20), location: locationary.sample)
   like_count = rand(50)

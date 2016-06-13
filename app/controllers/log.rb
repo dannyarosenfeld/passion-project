@@ -41,9 +41,10 @@ post '/logs/:id/follow' do
   else
     redirect "/"
   end
-
-
 end
+
+
+
 
 post '/logs/:id/unfollow' do
   current_user = User.find(session[:user_id]) if session[:user_id]
@@ -51,9 +52,23 @@ post '/logs/:id/unfollow' do
   user_to_follow = log_of_user.user
   current_user.followees.delete(user_to_follow)
   current_user.save
-  redirect "/"
+
+
+if request.xhr?
+    id = params[:id].to_i
+    @log = Log.find(id)
+    fcount = @log.user.followers.count
+    follow_but = erb :followbut, :layout => false
+    content_type :json
+    {log_id: id, follow: follow_but, fcount: fcount}.to_json
+  else
+    redirect "/"
+end
 
 end
+
+
+
 
 
 post '/logs' do

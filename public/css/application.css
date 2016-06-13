@@ -8,7 +8,12 @@ body {
   max-width: 700px;
   margin: 0 auto;
   font-family: 'Raleway', sans-serif;
+
    }
+
+
+
+
 
 textarea {
   color: black;
@@ -81,9 +86,17 @@ img {
 .showlog {
   margin-top: 20px;
 }
+.containerblock {
+      min-width: 600px;
+      margin-top: -650px;
+      margin-left: 300px;
+     max-width: 700px;
+    text-align: center;
+}
+
 
 .containerthing {
 
-  margin-left: 8%;
+
 
 }
