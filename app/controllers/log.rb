@@ -52,8 +52,6 @@ post '/logs/:id/unfollow' do
   user_to_follow = log_of_user.user
   current_user.followees.delete(user_to_follow)
   current_user.save
-
-
 if request.xhr?
     id = params[:id].to_i
     @log = Log.find(id)
