@@ -6,7 +6,6 @@
           center: {lat: -34.397, lng: 150.644}
         });
         var geocoder = new google.maps.Geocoder();
-
         geocodeAddress(geocoder, map);
       }
 
@@ -20,7 +19,6 @@
          var infowindow = new google.maps.InfoWindow({
               content: text
            });
-
 
         geocoder.geocode({'address': address}, function(results, status) {
           if (status === google.maps.GeocoderStatus.OK) {
