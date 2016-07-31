@@ -1,30 +1,38 @@
-> **Note**: This branch (master) contains a skeleton without any app code, perfect for creating a _new_ application or challenge. If you're looking for an example app built with this skeleton, take a look at the [example](/../..//tree/example) branch which includes basic CRUD and RSpec tests.
+# FitLog
+A web application that lets users create fitness logs, map them, and follow each other using the Sinatra Framework, Google Maps API, and AJAX.
 
-### Purpose
-The Sinatra Skeleton:
+## User stories:
+* As a user I can sign up and login with an email and password.
+* As a user I can create a workout log
+* As a user I can follow and unfollow other users asynchronously
+* As a user I can view my feed of people I’m following
+* As a user I can see the locations of workout logs posted by my followers
+* As a user I can see workout logs as pins on google maps
+* As a user I can click on those pins and see a google maps info window with the other user’s details
+* As a user I can leave comments on other users logs asynchronously
 
-1. Provides a foundation for building challenges or creating a new Sinatra application.
-2. Demonstrates a reasonable set of practices around building Sinatra applications.
-3. Eases the transition to Rails for Dev Bootcamp students
+## Screen Shots:
+![Home page](/Home_page.png)
+![Posting Page](/Feed_page.png)
 
-### Quickstart
-
-1.  `bundle install`
-2.  `shotgun config.ru`
-
-As needed, create models & migrations with the `rake` tasks:
+## Installation
+First, run: 
 
 ```
-rake generate:migration  # Create an empty migration in db/migrate, e.g., rake generate:migration NAME=create_tasks
-rake generate:model      # Create an empty model in app/models, e.g., rake generate:model NAME=User
+bundle install
 ```
 
-### Contributing
+Then, set up your database:
 
-We would love for you to help make the skeleton more awesome, There are three ways to contribute:
+```
+bundle exec rake db:create
+bundle exec rake db:migrate
+bundle exec rake db:seed
+```
 
-1. Ask for a bug fix or enhancement!
-2. Submit a pull request for a bug fix or enhancement!
-3. Code review an open pull request!
+Finally, run the web app locally:
 
-Be prepared to give and receive specific, actionable, and kind feedback!
+```
+bundle exec shotgun
+```
+
