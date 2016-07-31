@@ -12,8 +12,9 @@ A web application that lets users create fitness logs, map them, and follow each
 * As a user I can leave comments on other users logs asynchronously
 
 ## Screen Shots:
-![Home page](/Home_page.png)
+
 ![Posting Page](/Feed_page.png)
+![Home page](/Home_page.png)
 
 ## Installation
 First, run: 
