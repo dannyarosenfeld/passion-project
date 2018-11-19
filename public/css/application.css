@@ -8,12 +8,7 @@ body {
   max-width: 700px;
   margin: 0 auto;
   font-family: 'Raleway', sans-serif;
-
-   }
-
-
-
-
+}
 
 textarea {
   color: black;
@@ -23,16 +18,15 @@ textarea {
   margin-bottom: 20%;
 }
 
-
-  nav {
+nav {
   font-family: 'Raleway', sans-serif;
 }
 
 form input{
   color: black;
 }
-.inline-block {
 
+.inline-block {
   float: right;
 }
 
@@ -40,7 +34,6 @@ form input{
   border-radius: 5px;
   border: 2px solid #56BC8A;
   background: #86909E;
-
 }
 
 .followtext {
@@ -49,18 +42,13 @@ form input{
 
 #unfollow {
   border: 2px solid #DC6E53;
-
 }
-
-
 
 img {
   border-radius: 5px;
 }
 
-
 .login-form{
-
   display: inline-block;
   color: black;
   background:#337AB7;
@@ -72,31 +60,20 @@ img {
 
 .login-form input {
     display: inline-block;
-
-
-
 }
+
 .myinput {
    display: inline-block;
-
-
 }
-
 
 .showlog {
   margin-top: 20px;
 }
+
 .containerblock {
       min-width: 600px;
       margin-top: -650px;
       margin-left: 300px;
      max-width: 700px;
     text-align: center;
-}
-
-
-.containerthing {
-
-
-
 }
